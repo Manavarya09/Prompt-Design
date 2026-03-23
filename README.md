@@ -117,9 +117,9 @@ Claude (skills.sh) / OpenAI / GPT / Cursor / VS Code / Custom APIs
 
 ## Links
 
-- **GitHub:** https://github.com/Manavarya09/Prompt-Design
+- **GitHub:** https://github.com/Manavarya09/ai-design-skills
 - **npm:** https://www.npmjs.com/package/ai-design-skills
-- **Landing Page:** https://Manavarya09.github.io/Prompt-Design
+- **Landing Page:** https://Manavarya09.github.io/ai-design-skills
 
 ---
 

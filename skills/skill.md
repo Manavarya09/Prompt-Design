@@ -4,5 +4,5 @@
   "description": "Design Intelligence for AI Agents - 35 design languages",
   "categories": ["design", "ai", "ui"],
   "tags": ["design-system", "ui", "ai", "css", "tailwind"],
-  "source": "https://github.com/Manavarya09/Prompt-Design"
+  "source": "https://github.com/Manavarya09/ai-design-skills"
 }
