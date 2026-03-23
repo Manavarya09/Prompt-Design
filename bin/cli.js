@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import inquirer from 'inquirer';
-import { readFileSync, existsSync } from 'fs';
+import { readFileSync, existsSync, mkdirSync, writeFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
 
@@ -50,11 +50,7 @@ function showLoadCommand(skill) {
     const outputDir = resolve(process.cwd(), 'ai-design-skills');
     
     try {
-      let fs;
-      try { fs = await import('fs'); } catch {}
-      const { mkdirSync, writeFileSync, existsSync: exists } = await import('fs');
-      
-      if (!exists(outputDir)) {
+      if (!existsSync(outputDir)) {
         mkdirSync(outputDir, { recursive: true });
       }
       
