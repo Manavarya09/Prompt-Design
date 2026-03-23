@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PromptDesign - Design Intelligence for AI Agents</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background: #fff;
+            color: #000;
+            line-height: 1.4;
+        }
+
+        /* NAVIGATION */
+        nav {
+            border-bottom: 4px solid #000;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0;
+        }
+
+        .nav-links a {
+            padding: 10px 20px;
+            border: 2px solid #000;
+            border-left: none;
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+
+        .nav-links a:first-child {
+            border-left: 2px solid #000;
+        }
+
+        .nav-links a:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        /* HERO */
+        .hero {
+            border-bottom: 4px solid #000;
+            padding: 80px 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .hero-text {
+            border-right: 4px solid #000;
+            padding-right: 40px;
+        }
+
+        .hero-text h1 {
+            font-size: 72px;
+            font-weight: bold;
+            text-transform: uppercase;
+            line-height: 0.9;
+            margin-bottom: 40px;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            max-width: 500px;
+            margin-bottom: 40px;
+        }
+
+        .hero-stats {
+            padding-left: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .stat-box {
+            border: 4px solid #000;
+            padding: 30px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .stat-box:last-child {
+            margin-bottom: 0;
+        }
+
+        .stat-number {
+            font-size: 64px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* COMMANDS */
+        .commands {
+            border-bottom: 4px solid #000;
+            padding: 60px 40px;
+        }
+
+        .section-title {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+        }
+
+        .command-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+        }
+
+        .command-box {
+            border: 2px solid #000;
+            padding: 30px;
+        }
+
+        .command-box:nth-child(2),
+        .command-box:nth-child(5) {
+            border-left: none;
+            border-right: none;
+        }
+
+        .command-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .command-code {
+            font-size: 16px;
+            font-weight: bold;
+            word-break: break-all;
+        }
+
+        /* SKILLS */
+        .skills {
+            border-bottom: 4px solid #000;
+            padding: 60px 40px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0;
+        }
+
+        .skill-category {
+            border: 2px solid #000;
+            padding: 30px 20px;
+        }
+
+        .skill-category:nth-child(2),
+        .skill-category:nth-child(3),
+        .skill-category:nth-child(4) {
+            border-left: none;
+            border-right: none;
+        }
+
+        .category-name {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #000;
+        }
+
+        .category-count {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .skill-list {
+            list-style: none;
+            font-size: 12px;
+        }
+
+        .skill-list li {
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* FEATURES */
+        .features {
+            border-bottom: 4px solid #000;
+            padding: 60px 40px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+        }
+
+        .feature-box {
+            border: 2px solid #000;
+            padding: 40px 30px;
+        }
+
+        .feature-box:nth-child(2),
+        .feature-box:nth-child(3) {
+            border-left: none;
+            border-right: none;
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .feature-desc {
+            font-size: 13px;
+            color: #333;
+        }
+
+        /* INSTALL */
+        .install {
+            border-bottom: 4px solid #000;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .install h2 {
+            font-size: 48px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+
+        .install-code {
+            border: 4px solid #000;
+            padding: 30px 60px;
+            font-size: 24px;
+            display: inline-block;
+            margin-bottom: 40px;
+            background: #000;
+            color: #fff;
+        }
+
+        .install-note {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-left {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 0;
+        }
+
+        .footer-link {
+            padding: 10px 20px;
+            border: 2px solid #000;
+            border-left: none;
+            text-decoration: none;
+            color: #000;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .footer-link:first-child {
+            border-left: 2px solid #000;
+        }
+
+        .footer-link:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 60px 30px;
+            }
+
+            .hero-text {
+                border-right: none;
+                border-bottom: 4px solid #000;
+                padding-right: 0;
+                padding-bottom: 40px;
+            }
+
+            .hero-text h1 {
+                font-size: 48px;
+            }
+
+            .hero-stats {
+                padding-left: 0;
+                padding-top: 40px;
+                flex-direction: row;
+                gap: 20px;
+            }
+
+            .stat-box {
+                flex: 1;
+                margin-bottom: 0;
+            }
+
+            .command-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .command-box {
+                border-bottom: none;
+            }
+
+            .command-box:last-child {
+                border-bottom: 2px solid #000;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .skill-category:nth-child(2) {
+                border-left: 2px solid #000;
+                border-right: none;
+            }
+
+            .skill-category:nth-child(4) {
+                border-left: 2px solid #000;
+                border-right: none;
+            }
+
+            .skill-category:nth-child(5) {
+                border-left: 2px solid #000;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .feature-box:nth-child(2) {
+                border-left: 2px solid #000;
+                border-right: 2px solid #000;
+            }
+
+            .feature-box:nth-child(3) {
+                border-left: 2px solid #000;
+            }
+
+            .feature-box:nth-child(4) {
+                border-top: none;
+                border-left: 2px solid #000;
+            }
+
+            .feature-box:nth-child(1),
+            .feature-box:nth-child(2) {
+                border-bottom: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+            }
+
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-category {
+                border-bottom: none;
+            }
+
+            .skill-category:last-child {
+                border-bottom: 2px solid #000;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-box {
+                border-bottom: none;
+            }
+
+            .feature-box:last-child {
+                border-bottom: 2px solid #000;
+            }
+
+            .install h2 {
+                font-size: 32px;
+            }
+
+            .install-code {
+                font-size: 16px;
+                padding: 20px 30px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">PromptDesign</div>
+        <div class="nav-links">
+            <a href="#commands">Commands</a>
+            <a href="#skills">Skills</a>
+            <a href="#features">Features</a>
+            <a href="#install">Install</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Design<br>Intelligence<br>for AI<br>Agents</h1>
+            <p>35 structured design language specifications that enable AI agents to understand, apply, and transform UIs across any design language with precision and consistency.</p>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-box">
+                <span class="stat-number">35</span>
+                <span class="stat-label">Design Languages</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">6</span>
+                <span class="stat-label">Categories</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">1</span>
+                <span class="stat-label">Command</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="commands" id="commands">
+        <h2 class="section-title">// Load a Design Language</h2>
+        <div class="command-grid">
+            <div class="command-box">
+                <div class="command-label">Claude / skills.sh</div>
+                <div class="command-code">/load promptdesign</div>
+            </div>
+            <div class="command-box">
+                <div class="command-label">npm Package</div>
+                <div class="command-code">npm install promptdesign</div>
+            </div>
+            <div class="command-box">
+                <div class="command-label">CLI</div>
+                <div class="command-code">npx promptdesign list</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <h2 class="section-title">// 35 Design Languages</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <div class="category-name">Core</div>
+                <div class="category-count">8</div>
+                <ul class="skill-list">
+                    <li>minimalism</li>
+                    <li>flat-design</li>
+                    <li>material-design</li>
+                    <li>swiss-international</li>
+                    <li>enterprise-ui</li>
+                    <li>data-first-dashboard</li>
+                    <li>card-based-ui</li>
+                    <li>bento-grid-layout</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <div class="category-name">Depth</div>
+                <div class="category-count">6</div>
+                <ul class="skill-list">
+                    <li>glassmorphism</li>
+                    <li>neumorphism</li>
+                    <li>claymorphism</li>
+                    <li>soft-ui</li>
+                    <li>gradient-mesh</li>
+                    <li>aurora-ui</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <div class="category-name">Color</div>
+                <div class="category-count">5</div>
+                <ul class="skill-list">
+                    <li>dark-mode</li>
+                    <li>monochrome</li>
+                    <li>duotone</li>
+                    <li>high-contrast</li>
+                    <li>pastel</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <div class="category-name">Bold</div>
+                <div class="category-count">5</div>
+                <ul class="skill-list">
+                    <li>brutalism</li>
+                    <li>anti-design</li>
+                    <li>retro-web</li>
+                    <li>cyberpunk</li>
+                    <li>vaporwave</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <div class="category-name">Futuristic</div>
+                <div class="category-count">5</div>
+                <ul class="skill-list">
+                    <li>tech-futurism</li>
+                    <li>ai-native-ui</li>
+                    <li>spatial-ui</li>
+                    <li>voice-first</li>
+                    <li>gesture-based</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <h2 class="section-title">// What You Get</h2>
+        <div class="features-grid">
+            <div class="feature-box">
+                <div class="feature-icon">01</div>
+                <div class="feature-title">Structured Rules</div>
+                <div class="feature-desc">Every design language includes layout, typography, color, and component specifications.</div>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">02</div>
+                <div class="feature-title">Machine Readable</div>
+                <div class="feature-desc">JSON schema for programmatic access and integration with any AI system.</div>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">03</div>
+                <div class="feature-title">AI Native</div>
+                <div class="feature-desc">Built for AI agents. Apply design languages with simple prompts.</div>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">04</div>
+                <div class="feature-title">Production Ready</div>
+                <div class="feature-desc">Output constraints ensure code is valid, accessible, and consistent.</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="install" id="install">
+        <h2>Get Started</h2>
+        <div class="install-code">npm install promptdesign</div>
+        <p class="install-note">Then load any of 35 design languages with one command</p>
+    </section>
+
+    <footer>
+        <div class="footer-left">PromptDesign v1.0.0 / MIT License</div>
+        <div class="footer-right">
+            <a href="https://github.com/Manavarya09/Prompt-Design" class="footer-link">GitHub</a>
+            <a href="https://npmjs.com/package/promptdesign" class="footer-link">npm</a>
+        </div>
+    </footer>
+
+</body>
+</html>
