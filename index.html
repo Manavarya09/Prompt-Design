@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PromptDesign - Give AI a Sense of Design</title>
+    <title>AI Design Skills - Give AI a Sense of Design</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -41,18 +41,6 @@
         ::selection {
             background: var(--black);
             color: var(--white);
-        }
-
-        /* CURSOR */
-        .cursor {
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--black);
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            mix-blend-mode: difference;
-            transition: transform 0.1s ease;
         }
 
         /* NAV */
@@ -577,6 +565,44 @@
             line-height: 1.6;
         }
 
+        /* INSTALL */
+        .install {
+            padding: 140px 60px;
+            background: var(--gray-100);
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .install-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .install-card {
+            padding: 40px;
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+        }
+
+        .install-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gray-500);
+            margin-bottom: 16px;
+        }
+
+        .install-code {
+            font-family: 'Space Mono', monospace;
+            font-size: 14px;
+            padding: 20px;
+            background: var(--black);
+            color: var(--white);
+            word-break: break-all;
+        }
+
         /* CTA */
         .cta {
             padding: 140px 60px;
@@ -647,6 +673,34 @@
             color: var(--gray-500);
         }
 
+        /* PLATFORMS */
+        .platforms {
+            padding: 60px;
+            border-top: 1px solid var(--gray-200);
+            text-align: center;
+        }
+
+        .platforms-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gray-400);
+            margin-bottom: 20px;
+        }
+
+        .platforms-list {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .platform {
+            font-size: 14px;
+            color: var(--gray-600);
+        }
+
         /* MOBILE */
         @media (max-width: 1024px) {
             nav {
@@ -699,6 +753,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .install-grid {
+                grid-template-columns: 1fr;
+            }
+
             .features-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -741,34 +799,17 @@
                 align-items: center;
             }
         }
-
-        /* ANIMATIONS */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate {
-            animation: fadeIn 0.6s ease forwards;
-        }
     </style>
 </head>
 <body>
-    <div class="cursor"></div>
 
     <nav>
-        <div class="logo">PromptDesign<span>.</span></div>
+        <div class="logo">ai-design-skills<span>.</span></div>
         <div class="nav-links">
             <a href="#skills">Skills</a>
             <a href="#how">How It Works</a>
             <a href="#example">Example</a>
-            <a href="#api">API</a>
+            <a href="#install">Install</a>
         </div>
         <a href="https://github.com/Manavarya09/Prompt-Design" class="nav-cta">View on GitHub</a>
     </nav>
@@ -779,7 +820,7 @@
         <p class="hero-sub">Structured design language specifications that enable AI agents to understand, apply, and transform UIs with precision and consistency. No more messy layouts. No more inconsistent styling.</p>
         <div class="hero-actions">
             <a href="#install" class="btn-primary">
-                npm install promptdesign
+                npm install ai-design-skills
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
@@ -803,8 +844,8 @@
             <div class="stat-label">Categories</div>
         </div>
         <div class="stat">
-            <div class="stat-number">1</div>
-            <div class="stat-label">Command</div>
+            <div class="stat-number">3</div>
+            <div class="stat-label">Platforms</div>
         </div>
         <div class="stat">
             <div class="stat-number">0</div>
@@ -979,20 +1020,21 @@
         <h2>Use Anywhere</h2>
         <div class="api-grid">
             <div class="api-endpoint">
-                <div class="api-method">POST /apply-design-language</div>
-                <div class="api-path">/apply-design-language</div>
+                <div class="api-method">npm install</div>
+                <div class="api-path">JavaScript / TypeScript</div>
                 <div class="api-code">
-                    { "design": "minimalism", "input": "..." }<br><br>
-                    { "styled_output": "...", "applied_rules": [...] }
+                    import { getDesignLanguage } from 'ai-design-skills';<br><br>
+                    const design = await getDesignLanguage('glassmorphism');<br>
+                    console.log(design.colors);
                 </div>
             </div>
             <div class="api-endpoint">
-                <div class="api-method">npm install promptdesign</div>
-                <div class="api-path">JavaScript API</div>
+                <div class="api-method">Claude / skills.sh</div>
+                <div class="api-path">AI Agent Commands</div>
                 <div class="api-code">
-                    import { getDesignLanguage } from 'promptdesign';<br><br>
-                    const design = await getDesignLanguage('glassmorphism');<br>
-                    console.log(design.colors);
+                    /load promptdesign<br><br>
+                    /load promptdesign/core/minimalism<br><br>
+                    /load promptdesign/depth-texture/glassmorphism
                 </div>
             </div>
         </div>
@@ -1085,7 +1127,37 @@
         </div>
     </section>
 
-    <section class="cta" id="install">
+    <section class="install" id="install">
+        <div class="section-label">Get Started</div>
+        <h2>Install Now</h2>
+        <div class="install-grid">
+            <div class="install-card">
+                <div class="install-label">npm</div>
+                <div class="install-code">npm install ai-design-skills</div>
+            </div>
+            <div class="install-card">
+                <div class="install-label">Claude / skills.sh</div>
+                <div class="install-code">/load promptdesign</div>
+            </div>
+            <div class="install-card">
+                <div class="install-label">yarn</div>
+                <div class="install-code">yarn add ai-design-skills</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="platforms">
+        <div class="platforms-label">Compatible With</div>
+        <div class="platforms-list">
+            <span class="platform">Claude (skills.sh)</span>
+            <span class="platform">OpenAI / GPT</span>
+            <span class="platform">Cursor</span>
+            <span class="platform">VS Code</span>
+            <span class="platform">Custom APIs</span>
+        </div>
+    </section>
+
+    <section class="cta">
         <h2>Stop Fighting Your AI</h2>
         <p>Give it a design language to follow. Get consistent, production-ready UIs instead of random output.</p>
         <div class="cta-buttons">
@@ -1097,57 +1169,22 @@
                     <line x1="10" y1="14" x2="21" y2="3"/>
                 </svg>
             </a>
-            <a href="https://npmjs.com/package/promptdesign" class="btn-secondary">
-                npm install promptdesign
+            <a href="https://www.npmjs.com/package/ai-design-skills" class="btn-secondary">
+                View on npm
             </a>
         </div>
     </section>
 
     <footer>
         <div class="footer-left">
-            <div class="footer-logo">PromptDesign.</div>
+            <div class="footer-logo">ai-design-skills.</div>
             <div class="footer-links">
                 <a href="https://github.com/Manavarya09/Prompt-Design">GitHub</a>
-                <a href="https://npmjs.com/package/promptdesign">npm</a>
-                <a href="mailto:manav@designskills.dev">Contact</a>
+                <a href="https://www.npmjs.com/package/ai-design-skills">npm</a>
             </div>
         </div>
         <div class="footer-right">MIT License / Built for AI agents that need design sense</div>
     </footer>
 
-    <script>
-        // Custom cursor
-        const cursor = document.querySelector('.cursor');
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX - 10 + 'px';
-            cursor.style.top = e.clientY - 10 + 'px';
-        });
-
-        // Smooth scroll for nav links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Intersection Observer for animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
-    </script>
 </body>
 </html>
