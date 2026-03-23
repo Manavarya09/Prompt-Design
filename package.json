@@ -2,9 +2,42 @@
   "name": "promptdesign",
   "version": "1.0.0",
   "description": "Design Intelligence for AI Agents - 35 structured design languages for UI transformation",
-  "icon": "design",
-  "categories": ["design", "ai", "ui", "css", "tailwind", "html"],
-  "tags": ["design-system", "ui", "ai", "claude", "css", "tailwind", "html", "react"],
-  "source": "https://github.com/Manavarya09/Prompt-Design",
-  "skill_path": "promptdesign/skills"
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "types/index.ts",
+  "exports": {
+    ".": {
+      "types": "./types/index.ts",
+      "import": "./src/index.ts",
+      "require": "./dist/index.js"
+    },
+    "./skills": "./skills/",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "skills",
+    "types",
+    "src",
+    "README.md"
+  ],
+  "keywords": [
+    "ai",
+    "design",
+    "ui",
+    "design-system",
+    "claude",
+    "skills",
+    "prompt",
+    "css",
+    "html",
+    "react"
+  ],
+  "author": "Manav",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Manavarya09/Prompt-Design"
+  },
+  "homepage": "https://manavarya09.github.io/Prompt-Design"
 }
