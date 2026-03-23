@@ -2,10 +2,12 @@
 
 import inquirer from 'inquirer';
 import { readFileSync, existsSync } from 'fs';
-import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { dirname, resolve } from 'path';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const packageRoot = resolve(__dirname, '..');
 
 const categories = {
   'Core': ['minimalism', 'flat-design', 'material-design', 'swiss-international', 'enterprise-ui', 'data-first-dashboard', 'card-based-ui', 'bento-grid-layout'],
@@ -42,7 +44,7 @@ function showLoadCommand(skill) {
   console.log(gray('  Or use npm package:'));
   console.log(white(`  npm install ai-design-skills\n`));
   
-  const skillPath = join(__dirname, '..', 'skills', 'core', `${skill}.md`);
+  const skillPath = resolve(packageRoot, 'skills', 'core', `${skill}.md`);
   if (existsSync(skillPath)) {
     console.log(gray('\n  --- Skill Preview ---\n'));
     const content = readFileSync(skillPath, 'utf-8');
