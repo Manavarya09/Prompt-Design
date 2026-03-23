@@ -1,4 +1,4 @@
-# PromptDesign
+# AI Design Skills
 
 ### Give AI a Sense of Design
 
@@ -6,14 +6,14 @@
 
 **35 structured design languages. One command. Consistent UIs.**
 
-AI generates messy layouts, inconsistent spacing, and random colors. PromptDesign fixes that by giving AI a complete design specification to follow.
+AI generates messy layouts, inconsistent spacing, and random colors. AI Design Skills fixes that by giving AI a complete design specification to follow.
 
 ---
 
 ## Quick Start
 
 ```bash
-npm install promptdesign
+npm install ai-design-skills
 ```
 
 **Claude / skills.sh:**
@@ -24,7 +24,7 @@ npm install promptdesign
 
 **JavaScript:**
 ```javascript
-import { getDesignLanguage } from 'promptdesign';
+import { getDesignLanguage } from 'ai-design-skills';
 const design = await getDesignLanguage('minimalism');
 ```
 
@@ -92,7 +92,7 @@ Structured design language specifications that AI follows. Each skill includes:
 ## API
 
 ```javascript
-import { getDesignLanguage, getAllDesignLanguages, transformUI } from 'promptdesign';
+import { getDesignLanguage, getAllDesignLanguages, transformUI } from 'ai-design-skills';
 
 // Get a single design language
 const design = await getDesignLanguage('glassmorphism');
@@ -115,10 +115,14 @@ Claude (skills.sh) / OpenAI / GPT / Cursor / VS Code / Custom APIs
 
 ---
 
-## License
+## Links
 
-MIT
+- **GitHub:** https://github.com/Manavarya09/Prompt-Design
+- **npm:** https://www.npmjs.com/package/ai-design-skills
+- **Landing Page:** https://Manavarya09.github.io/Prompt-Design
 
 ---
 
-[View Landing Page](https://manavarya09.github.io/Prompt-Design)
+## License
+
+MIT
