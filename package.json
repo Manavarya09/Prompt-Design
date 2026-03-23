@@ -1,6 +1,6 @@
 {
   "name": "ai-design-skills",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Design Intelligence for AI Agents - 35 structured design languages for UI transformation",
   "type": "module",
   "main": "./bin/cli.js",

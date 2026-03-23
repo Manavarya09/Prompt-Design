@@ -37,6 +37,17 @@ function showBanner() {
   console.log(green('  35 Design Languages available\n'));
 }
 
+function findSkillFile(skill) {
+  const skillDirs = ['core', 'depth-texture', 'modes-color', 'experimental', 'product-oriented', 'futuristic'];
+  for (const dir of skillDirs) {
+    const path = resolve(packageRoot, 'skills', dir, `${skill}.md`);
+    if (existsSync(path)) {
+      return path;
+    }
+  }
+  return null;
+}
+
 function showLoadCommand(skill) {
   console.log(green(`\n  Load Command for: ${white(skill)}\n`));
   console.log(gray('  Claude / skills.sh:'));
@@ -44,8 +55,8 @@ function showLoadCommand(skill) {
   console.log(gray('  Or use npm package:'));
   console.log(white(`  npm install ai-design-skills\n`));
   
-  const skillPath = resolve(packageRoot, 'skills', 'core', `${skill}.md`);
-  if (existsSync(skillPath)) {
+  const skillPath = findSkillFile(skill);
+  if (skillPath) {
     const content = readFileSync(skillPath, 'utf-8');
     const outputDir = resolve(process.cwd(), 'ai-design-skills');
     
